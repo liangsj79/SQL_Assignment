@@ -103,7 +103,7 @@ SELECT p.ProductID, count(od.OrderID) AS NumOrders
 FROM Products p
 JOIN [Order Details]  od ON p.ProductID = od.ProductID
 JOIN Orders o on od. OrderID = o.OrderID
-WHERE YEAR(GETDATE()) - YEAR(o.OrderDate) <= 25
+WHERE YEAR(GETDATE()) - YEAR(o.OrderDate) < 25
 GROUP BY p.ProductID
 HAVING count(od.OrderID) > 0
 ORDER BY 2 DESC
@@ -118,7 +118,7 @@ ORDER BY Count(OrderID) DESC
 --16
 SELECT TOP 5 ShipPostalCode, Count(OrderID) AS NumOrders
 FROM Orders
-WHERE ShipPostalCode IS NOT NULL AND YEAR(GETDATE()) - YEAR(OrderDate) <= 25
+WHERE ShipPostalCode IS NOT NULL AND YEAR(GETDATE()) - YEAR(OrderDate) < 25
 GROUP BY ShipPostalCode
 ORDER BY Count(OrderID) DESC
 
