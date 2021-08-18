@@ -80,11 +80,11 @@ WHERE ProductSubcategoryID IS NOT NULL AND Color IS NOT NULL
 ORDER BY 1,2
 
 --16
-SELECT ProductSubCategoryID
-      , LEFT([Name],35) AS [Name]
-      , Color, ListPrice 
+SELECT ProductSubCategoryID, 
+LEFT([Name],35) AS [Name], 
+Color, ListPrice 
 FROM Production.Product
 WHERE (Color IN ('Red','Black') 
-      AND ListPrice BETWEEN 1000 AND 2000)
-      OR ProductSubCategoryID = 1
+AND ListPrice BETWEEN 1000 AND 2000)
+OR ProductSubCategoryID = 1
 ORDER BY ProductID
